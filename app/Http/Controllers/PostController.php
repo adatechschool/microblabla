@@ -13,6 +13,25 @@ class PostController extends Controller
             'post'=> $post[1]
         ]);
     } 
+
+    public function index() {
+        //Récupération de tous les posts
+        $posts = Post::latest()->get();
+
+        //Trasmission de la donnée à la vue
+        return view("posts.index", compact("posts"));
+    }
+
+    public function create() { }
+
+    public function store(Request $request) { }
+
+    public function edit(Post $post) { }
+
+    public function update(Request $request, Post $post) { }
+
+    public function destroy(Post $post) { }
+     
 }
 
 
