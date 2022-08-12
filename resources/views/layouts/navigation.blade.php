@@ -10,10 +10,16 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Navigation Bar & Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                        {{ __('Profile') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
+                        {{ __('Posts') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -37,6 +43,11 @@
                         <!-- Profile -->
                     <x-dropdown-link :href="route('profile')">
                                 {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                         <!-- Posts -->
+                    <x-dropdown-link :href="route('posts.index')">
+                                {{ __('Posts') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -86,15 +97,20 @@
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
 
+                    <!-- Posts -->
+                <x-responsive-nav-link :href="route('posts.index')">
+                        {{ __('Posts') }}
+                    </x-responsive-nav-link>
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
+                    
                 </form>
             </div>
         </div>

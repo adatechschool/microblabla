@@ -11,9 +11,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-blue-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-blue border-b border-darkblue-900">
-                    <form action="{{ route(profile.update) }}" method="post">
-                        @method('PUT')
-                        @csrf
+                 <form action="#" method="post">  
                         <div class="grid grid-cols-2 gap-6">
                             <div class="grid grid-row-2 gap-6">
                                 <div>

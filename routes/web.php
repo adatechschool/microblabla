@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 use GuzzleHttp\Psr7\Uri;
 use Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface;
 
@@ -22,12 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(attributes: ['middleware' => 'auth'], routes: function () {
-    Route::get('/dashboard', function () {
-        return view(view: 'dashboard');
+Route::group(attributes: ['middleware' => 'auth'], routes: function() {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
     })->name('dashboard');
-    Route::view('/profile', view:'profile')->name(name:'profile');
-    Route::put('/profile', action:[ProfileController::class, 'update'])->name( name:'profile.update');
+    //Route::view('profile','profile')->name('profile');
+     Route::view('profile','profile')->name('profile');
+    // Route::put('profile', [ProfileController::class, 'update'])->name('profile');
+    //Route::put('profile', [])->name('profile');
     Route::resource('posts', PostController::class);
 });
 
